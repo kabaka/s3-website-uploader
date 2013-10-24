@@ -58,6 +58,10 @@ Dir['source-files/pages/*.*'].each do |file|
   case match[:type].to_sym
   when :md, :markdown
     body = Kramdown::Document.new(IO.read(file)).to_html
+  when :txt
+    body = "<pre>#{IO.read(file)}</pre>"
+  when :erb
+    body = ERB.new(IO.read(file)).result TOPLEVEL_BINDING
   else
     body = IO.read(file)
   end
