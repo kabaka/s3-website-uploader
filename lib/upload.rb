@@ -1,4 +1,4 @@
-require 'aws'
+require 'aws-sdk-v1'
 require 'digest/md5'
 
 include AWS
