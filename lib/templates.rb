@@ -6,8 +6,8 @@ module Templates
 
   @@templates = {}
 
-  Dir["templates/*.erb*"].each do |f|
-    match = f.match(/^templates\/(?<name>.+)\.erb(\.(?<type>.+))?$/)
+  Dir["source-files/templates/*.erb*"].each do |f|
+    match = f.match(/^source-files\/templates\/(?<name>.+)\.erb(\.(?<type>.+))?$/)
 
     type = match[:type] ? match[:type].to_sym : nil
 
