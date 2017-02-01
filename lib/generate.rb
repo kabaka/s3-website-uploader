@@ -2,6 +2,7 @@ require 'fileutils'
 require 'ostruct'
 require 'kramdown'
 require 'digest/md5'
+require 'date'
 
 load 'lib/templates.rb'
 
@@ -32,6 +33,7 @@ end
 
 def create_html name, body
   title = File.basename(name, '.html').split('-').map {|w| w.capitalize}.join ' '
+  datetime = DateTime.now()
 
   content = Templates.result 'html', binding
 
